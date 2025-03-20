@@ -28,7 +28,7 @@ const BasicForm = () => {
         value={values.email}
         onChange={handleChange}
         onBlur={handleBlur}
-        className={errors.email && "bg-red-500"}
+        className={errors.email && "input-error"}
       />
       <label htmlFor="age">Age</label>
       <input
@@ -38,6 +38,7 @@ const BasicForm = () => {
         onChange={handleChange}
         value={values.age}
         onBlur={handleBlur}
+        className="bg-red-300"
       />
       <label htmlFor="password">Password</label>
       <input
@@ -58,6 +59,7 @@ const BasicForm = () => {
         onBlur={handleBlur}
       />
       <button type="submit"> Submit All</button>
+      <div className="bg-red-300">lol</div>
     </form>
   );
 };

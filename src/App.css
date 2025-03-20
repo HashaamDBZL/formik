@@ -91,5 +91,4 @@ button {
 input.input-error,
 select.input-error {
   background-color: red;
-  text-decoration-color: #fc8181;
 }
