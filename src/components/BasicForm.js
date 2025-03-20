@@ -28,6 +28,7 @@ const BasicForm = () => {
         value={values.email}
         onChange={handleChange}
         onBlur={handleBlur}
+        className={errors.email && "bg-red-500"}
       />
       <label htmlFor="age">Age</label>
       <input
