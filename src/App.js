@@ -1,6 +1,7 @@
 import { useState } from "react";
 import BasicForm from "./components/BasicForm";
 import AdvancedForm from "./components/AdvancedForm";
+import DynamicForm from "./components/DynamicForm.tsx";
 import "./App.css";
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
           Advanced
         </h3>
       </nav>
-      {view === "basic" ? <BasicForm /> : <AdvancedForm />}
+      {view === "basic" ? <DynamicForm /> : <BasicForm />}
     </div>
   );
 }
