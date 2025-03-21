@@ -1,6 +1,14 @@
-import { Field, FieldArray, Form, Formik, FormikProps } from "formik";
+import {
+  ErrorMessage,
+  Field,
+  FieldArray,
+  Form,
+  Formik,
+  FormikProps,
+} from "formik";
 import React from "react";
-
+import * as Yup from "yup";
+import { DynamicFormSchema } from "../schemas/DynamicSchema.ts";
 const DynamicForm = () => {
   interface IValue {
     summary: string;
@@ -17,7 +25,11 @@ const DynamicForm = () => {
     console.log(values);
   };
   return (
-    <Formik initialValues={initialValues} onSubmit={onSubmit}>
+    <Formik
+      initialValues={initialValues}
+      onSubmit={onSubmit}
+      validationSchema={DynamicFormSchema}
+    >
       {({ values }: FormikProps<IValue>) => (
         <Form>
           <div className="mb-4">
@@ -43,6 +55,10 @@ const DynamicForm = () => {
                             name={`employees.${index}.name`}
                             className="border shadow rounded"
                           />
+                          <ErrorMessage
+                            name={`employees.${index}.name`}
+                            className="text-red-500"
+                          />
 
                           <label htmlFor={`employees.${index}.age`}>Age</label>
                           <Field
@@ -50,6 +66,10 @@ const DynamicForm = () => {
                             name={`employees.${index}.age`}
                             type="number"
                             className="border shadow rounded"
+                          />
+                          <ErrorMessage
+                            name={`employees.${index}.age`}
+                            className="text-red-500"
                           />
 
                           <label htmlFor={`employees.${index}.email`}>
@@ -60,6 +80,10 @@ const DynamicForm = () => {
                             name={`employees.${index}.email`}
                             type="email"
                             className="border shadow rounded"
+                          />
+                          <ErrorMessage
+                            name={`employees.${index}.email`}
+                            className="text-red-500"
                           />
                           <button
                             type="button"
