@@ -19,9 +19,10 @@ const DynamicForm = () => {
   return (
     <Formik initialValues={initialValues} onSubmit={onSubmit}>
       {({ values }: FormikProps<IValue>) => (
-        <Form className="bg-red-300/50 text-lg">
-          <label htmlFor="summary">Summary</label>
-          <Field name="summary" id="summary" className="border p-4" />
+        <Form>
+          <div className="mb-4">
+            <Field as="textarea" name="summary" />
+          </div>
           <div className="p-4">
             <FieldArray
               name="employees"
@@ -60,6 +61,13 @@ const DynamicForm = () => {
                             type="email"
                             className="border shadow rounded"
                           />
+                          <button
+                            type="button"
+                            className="rounded shadow border p-2 bg-red-500"
+                            onClick={() => remove(index)}
+                          >
+                            Remove
+                          </button>
                         </div>
                       );
                     })}
